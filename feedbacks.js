@@ -16,6 +16,18 @@ const getfeedback3 = async () => {
     return count.value ?? 0;
 }
 
+const getfeedback4 = async () => {
+    const kv = await Deno.openKv();
+    const count = await kv.get(["feedback4"]);
+    return count.value ?? 0;
+}
+
+const getfeedback5 = async () => {
+    const kv = await Deno.openKv();
+    const count = await kv.get(["feedback5"]);
+    return count.value ?? 0;
+}
+
 const incrementCount1 = async () => {
     const kv = await Deno.openKv();
     let count = await getfeedback1();
@@ -37,4 +49,18 @@ const incrementCount3 = async () => {
     await kv.set(["feedback3"], Number(count) + 1);
 }
 
-export  { getfeedback1 , getfeedback2 , getfeedback3 , incrementCount1 , incrementCount2 , incrementCount3 } ;
+const incrementCount4 = async () => {
+    const kv = await Deno.openKv();
+    let count = await getfeedback4();
+    console.log(Number(count) + 1);
+    await kv.set(["feedback4"], Number(count) + 1);
+}
+
+const incrementCount5 = async () => {
+    const kv = await Deno.openKv();
+    let count = await getfeedback5();
+    console.log(Number(count) + 1);
+    await kv.set(["feedback5"], Number(count) + 1);
+}
+
+export  { getfeedback1 , getfeedback2 , getfeedback3 , getfeedback4 , getfeedback5 , incrementCount1 , incrementCount2 , incrementCount3 , incrementCount4 , incrementCount5 } ;

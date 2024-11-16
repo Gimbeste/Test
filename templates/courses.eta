@@ -4,24 +4,24 @@
     <title>Courses</title>
   </head>
   <body>
-    <h1>Courses</h1>
-    <!-- Form for adding a course -->
+    <p>Add a course:</p>
     <form method="POST" action="/courses">
-      <label for="courseName">Course name:</label>
-      <input type="text" id="courseName" name="name" required>
-      <button type="submit">Add</button>
+      <label for="name">Course name:</label>
+      <input type="text" id="name" name="name" /><br/>
+      <input type="submit" value="Add" />
     </form>
-    <!-- List of courses -->
-    <h2>Existing Courses</h2>
+    <p>Existing courses:</p>
     <ul>
-      <% it.courses.forEach((course) => { %>
+    <% it.courses.forEach((course) => { %>
       <li>
-        <a href="/courses/<%= course.id %>"><%= course.name %></a> 
-        <form method="POST" action="courses/<%= course.id %>">
-            <button type="submit">Delete</button> 
+        <a href="/courses/<%= course.id %>"><%= course.name %></a>
+        <form method="POST" action="/courses/<%= course.id %>/delete">
+          <input type="submit" value="Delete" />
         </form>
       </li>
     <% }); %>
     </ul>
+
+    <%~ include("/validation-errors.eta", { field: "Name", errors: it?.errors?.name?._errors }) %>
   </body>
 </html>

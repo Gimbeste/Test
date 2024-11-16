@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Courses</title>
+    <title>Course</title>
   </head>
   <body>
-    <h1><%= it.course.name %></h1>
-    <!-- Feedback buttons -->
-    <form action="/courses/<%= it.course.id %>/feedbacks/1" method="POST">
-      <button type="submit">Poor</button>
+    <p><%= it.course.name %></p>
+    <p>How would you rate this experience?</p>
+    <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/1">
+      <input type="submit" value="Poor"></input>
     </form>
-    <form action="/courses/<%= it.course.id %>/feedbacks/2" method="POST">
-      <button type="submit">Fair</button>
+    <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/2">
+      <input type="submit" value="Fair"></input>
     </form>
-    <form action="/courses/<%= it.course.id %>/feedbacks/3" method="POST">
-      <button type="submit">Good</button>
+    <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/3">
+      <input type="submit" value="Good"></input>
     </form>
-    <form action="/courses/<%= it.course.id %>/feedbacks/4" method="POST">
-      <button type="submit">Very good</button>
+    <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/4">
+      <input type="submit" value="Very good"></input>
     </form>
-    <form action="/courses/<%= it.course.id %>/feedbacks/5" method="POST">
-      <button type="submit">Excellent</button>
+    <form method="POST" action="/courses/<%= it.course.id %>/feedbacks/5">
+      <input type="submit" value="Excellent"></input>
     </form>
   </body>
 </html>
